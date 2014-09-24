@@ -1,0 +1,179 @@
+	@margin: 0;
+	@height: 500px;
+	//
+	// Colors
+	// --------------------------------------------------
+	@turquoise: #1abc9c;
+	@green-sea: #16a085;
+	@emerald: #2ecc71;
+	@nephritis: #27ae60;
+	@petermann-river: #3498db;
+	@belize-hole: #2980b9;
+	@amethyst: #9b59b6;
+	@wisteria: #8e44ad;
+	@wet-asphalt: #34495e;
+	@midnight-blue: #2c3e50;
+	@sun-flower: #f1c40f;
+	@orange: #f39c12;
+	@carrot: #e67e22;
+	@pumpkin: #d35400;
+	@alizarin: #e74c3c;
+	@pomegranate: #c0392b;
+	@clouds: #ecf0f1;
+	@silver: #bdc3c7;
+	@concerte: #95a5a6;
+	@asbestos: #7f8c8d;
+	body {
+	    margin: @margin;
+	    padding: @margin;
+	    font-family: sans-serif;
+	    font-size: 40px;
+	    color: #FFF;
+	    text-align: center;
+}
+.section {
+    background-color: @wet-asphalt;
+    height: @height;
+    line-height: @height;
+}
+
+.section-2 {
+    background-color:@sun-flower;
+}
+.section-3 {
+    background-color: @pomegranate;
+}
+.section-4 {
+    background-color: @petermann-river;
+}
+.section-5 {
+    background-color: @pumpkin;
+}
+.loader {
+    width: (@height * 0.1);
+    height: (@height * 0.1);
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+/* Loaders */
+
+.loader-quart {
+    border-radius: (@height * 0.1);
+    border: 6px solid rgba(255, 255, 255, 0.4);
+    &:after {
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: -6px;
+        bottom: -6px;
+        right: -6px;
+        border-radius: 50px;
+        border: 6px solid transparent;
+        border-top-color: #FFF;
+        -webkit-animation: spin 1s linear infinite;
+        -moz-animation: spin 1s linear infinite;
+        animation: 1s linear 0s normal none infinite spin;
+   }
+}
+.spinner(@start;@end) {
+    from {
+        -webkit-transform: rotate(@start);
+        -moz-transform: rotate(@start);
+        -ms-transform: rotate(@start);
+        -o-transform: rotate(@start);
+        transform: rotate(@start);
+   }
+   to {
+       -webkit-transform: rotate(@end);
+       -moz-transform: rotate(@end);
+       -ms-transform: rotate(@end);
+       -o-transform: rotate(@end);
+       transform: rotate(@end);
+  }
+}
+@keyframes spin {
+    .spinner(@start: 0deg;@end: 360deg);
+}
+
+@keyframes spinreverse {
+    .spinner(@start: 360deg; @end: 0deg);
+}
+
+.loader-double {
+    border-radius: (@height * 0.1);
+    border: 6px solid transparent;
+    border-top-color: #FFF;
+    border-bottom-color: #FFF;
+    -webkit-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        bottom: 5px;
+        right: 5px;
+        border-radius: 50px;
+        border: 6px solid transparent;
+        border-top-color: #FFF;
+        border-bottom-color: #FFF;
+        opacity: 0.6;
+        -webkit-animation: spinreverse 2s linear infinite;
+        -moz-animation: spinreverse 2s linear infinite;
+        animation: spinreverse 2s linear infinite;
+   }
+}
+
+
+.loader-circles {
+    border-radius: (@height * 0.1);
+    border: 3px solid transparent;
+    border-top-color: #FFF;
+    -webkit-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    &:before, &:after {
+	    content: '';
+	    position: absolute;
+	    top: 5px;
+	    left: 5px;
+	    bottom: 5px;
+	    right: 5px;
+	    border-radius: 50px;
+	    border: 3px solid transparent;
+	    border-top-color: #FFF;
+	    opacity: 0.8;
+	    -webkit-animation: spin 10s linear infinite;
+	    -moz-animation: spin 10s linear infinite;
+	    animation: spin 10s linear infinite;
+	}
+}
+
+
+.loader-bars:before, .loader-bars:after, .loader-bars span {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0;
+    width: 10px;
+    height: 30px;
+    background-color: #FFF;
+    -webkit-animation: grow 1s linear infinite;
+    -moz-animation: grow 1s linear infinite;
+    animation: grow 1s linear infinite;
+}
+.loader-bars:after {
+    left: 15px;
+    -webkit-animation-delay: -0.66s;
+    -moz-animation-delay: -0.66s;
+    animation-delay: -0.66s;
+}
+.loader-bars span {
+    left: 30px;
+    -webkit-animation-delay: -0.33s;
+    -moz-animation-delay: -0.33s;
+    animation-delay: -0.33s;
+}
